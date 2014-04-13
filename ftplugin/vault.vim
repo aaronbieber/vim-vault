@@ -10,6 +10,7 @@ setlocal textwidth=80
 setlocal formatlistpat="^\s*[\d*-]\+[\]:.)}\t ]\s*"
 setlocal foldexpr=VaultFoldLevel(v:lnum)
 setlocal foldmethod=expr
+set foldtext=v:folddashes.substitute(getline(v:foldstart),'==','','g')
 
 let g:vault_password_command = 'pwgen -c -n -1 10'
 
