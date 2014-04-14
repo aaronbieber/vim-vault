@@ -7,7 +7,7 @@ providing a basic structure for blocks of credentials utilizing Vim's
 "conceal" feature to hide passwords from prying eyes.
 
 Vault is meant to be used to manage files that are encrypted using Vim's
-built-in blowfish encryption (the 'crypmethod' setting is defaulted to
+built-in blowfish encryption (the 'cryptmethod' setting is defaulted to
 "blowfish" in \*.vault files), although you are welcome to use any other
 on-disk encryption mechanism or simply assume that nobody will ever get their
 hands on your password file. That part is up to you.
@@ -20,29 +20,28 @@ file with a '.vault' extension, or set the filetype of any file to "vault".
 The basic structure of vault files is as follows:
 
 * Sections are simply labels identifying groups of credentials. They are
-  identified by any text ending with a colon, like this:
-
-  ```
-  Section:
-  ```
-
+  identified by any text ending with a colon.
 * Actual credentials begin with double equal signs, similar to Markdown
-  syntax, like this:
-
-  ```
-  == Github
-  ```
-
+  syntax.
 * Items within credential blocks can include free-form text, lists of
   items beginning with asterisks (\*), hyphens (-), or numbers, and most
   importantly some usernames and passwords. Any items beginning with
-  bracketed words will get special syntax highlighting, like this:
+  bracketed words will get special syntax highlighting.
 
-  ```
-  [URL] http://www.github.com
-  [Username] user@domain.com
-  [Password] {rockyroad5!}
-  ```
+Here is an example of what a couple of credentials blocks might look like:
+
+```
+Web sites:
+  == Github
+    [URL] https://www.github.com
+    [Username] user@domain.com
+    [Password] {rockyroad5!}
+  == Facebook
+    [URL] https://www.facebook.com
+    [Username] user@domain.com
+    [Password] {soc14lbu77erfly}
+    * Password last changed 2014-04-01
+```
 
 Feel free to format data within credential blocks in any way you desire.
 Secrets should be enclosed within braces (as demonstrated by the password
