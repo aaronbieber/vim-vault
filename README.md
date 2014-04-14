@@ -48,6 +48,6 @@ Feel free to format data within credential blocks in any way you desire.
 Secrets should be enclosed within braces (as demonstrated by the password
 above). If your Vim is compiled with "conceal" support, the contents of braces
 will be obscured, replaced by a single asterisk. You can toggle the
-concealment of information on the current line by pressing <Return>, but even
+concealment of information on the current line by pressing `<Return>`, but even
 when the text is concealed you can still yank it, allowing you to grab your
 password without onlookers even seeing it.
