@@ -10,15 +10,17 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
-syn match vaultPassword /((.\{-}))/ms=s+2,me=e-2 conceal cchar=*
-syn match vaultSection  /^.*:$/
-syn match vaultItem     /\s*==.*$/
+syn match vaultPassword    /{.\{-}}/ms=s+1,me=e-1 conceal cchar=*
+syn match vaultAlert       /\v(^\s*)\zs!\s.*/hs=s
+syn match vaultSection     /^.*:$/
+syn match vaultItem        /\s*==.*$/
 syn match vaultSpecialItem /\v\s*\[[^]]*\]/
 
 hi def link vaultPassword    Identifier
 hi def link vaultSection     Keyword
 hi def link vaultItem        String
 hi def link vaultSpecialItem Operator
+hi def link vaultAlert       Error
 
 let b:current_syntax = "vault"
 
